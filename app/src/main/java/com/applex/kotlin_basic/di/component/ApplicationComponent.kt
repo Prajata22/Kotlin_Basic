@@ -2,6 +2,7 @@ package com.applex.kotlin_basic.di.component
 
 import android.content.Context
 import com.applex.kotlin_basic.di.module.ApplicationModule
+import com.applex.kotlin_basic.utils.CommonUtils
 import com.applex.kotlin_basic.utils.Constants
 import com.applex.kotlin_basic.utils.PreferenceManager
 import dagger.Component
@@ -19,4 +20,6 @@ interface ApplicationComponent {
     fun provideContext(): Context
 
     fun provideSharedPreferences(): PreferenceManager
+
+    fun provideCommonUtils() : CommonUtils
 }

@@ -3,6 +3,7 @@ package com.applex.kotlin_basic.di.module
 import android.app.Application
 import android.content.Context
 import com.applex.kotlin_basic.BuildConfig
+import com.applex.kotlin_basic.utils.CommonUtils
 import com.applex.kotlin_basic.utils.Constants
 import com.applex.kotlin_basic.utils.IntegerTypeAdapter
 import com.applex.kotlin_basic.utils.PreferenceManager
@@ -24,12 +25,12 @@ class ApplicationModule(private val context: Application) {
 
     @Provides
     @Singleton
-    fun provideSharedPreferences(context: Context): PreferenceManager = PreferenceManager(context)
+    fun provideSharedPreferences(context : Context): PreferenceManager = PreferenceManager(context)
 
     @Provides
     @Singleton
     @Named(Constants.RETROFIT_WITHOUT_HEADERS)
-    fun provideRetrofit(@Named(Constants.GOOGLE_GSON_RETROFIT) gson: Gson): Retrofit =
+    fun provideRetrofit(@Named(Constants.GOOGLE_GSON_RETROFIT) gson : Gson): Retrofit =
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL).addConverterFactory(GsonConverterFactory.create(gson))
             .build()
@@ -39,4 +40,8 @@ class ApplicationModule(private val context: Application) {
     @Named(Constants.GOOGLE_GSON_RETROFIT)
     fun provideGoogleGson(): Gson =
         GsonBuilder().registerTypeAdapter(Int::class.java, IntegerTypeAdapter()).create()
+
+    @Provides
+    @Singleton
+    fun provideCommonUtils(context : Context) : CommonUtils = CommonUtils(context)
 }

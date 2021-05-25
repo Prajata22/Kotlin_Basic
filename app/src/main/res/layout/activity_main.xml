@@ -117,6 +117,9 @@
                         android:clipToPadding="false"
                         android:paddingTop="8dp"
                         android:overScrollMode="never"
+                        android:nestedScrollingEnabled="true"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         android:descendantFocusability="blocksDescendants"
                         app:reverseLayout="false"/>
 
