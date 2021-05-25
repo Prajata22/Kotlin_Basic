@@ -1,31 +1,28 @@
 package com.applex.kotlin_basic.features.views.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+
 import com.applex.kotlin_basic.R
 import com.applex.kotlin_basic.application.KotlinBasicApplication
 import com.applex.kotlin_basic.databinding.ActivityBookBinding
 import com.applex.kotlin_basic.features.di.BooksComponent
+import com.applex.kotlin_basic.features.di.DaggerBooksComponent
 import com.applex.kotlin_basic.features.viewModel.BooksViewModel
 
 class BookDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding : ActivityBookBinding = DataBindingUtil.setContentView(
-            this@BookDetailsActivity,
-            R.layout.activity_book
-        )
 
-        val booksViewModel : BooksViewModel = ViewModelProvider(
-            this@BookDetailsActivity
-        ).get(
-            BooksViewModel::class.java
-        )
+        val binding : ActivityBookBinding = DataBindingUtil.setContentView(this, R.layout.activity_book)
+
+        val booksViewModel : BooksViewModel = ViewModelProvider(this).get(BooksViewModel::class.java)
 
         val booksComponent : BooksComponent = DaggerBooksComponent.builder()
             .applicationComponent(
@@ -34,8 +31,13 @@ class BookDetailsActivity : AppCompatActivity() {
             )
             .build()
 
-        booksComponent.inject(this@BookDetailsActivity)
+        booksComponent.inject(this)
         booksComponent.inject(booksViewModel)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp)
 
         when {
             booksViewModel.bookName.isNotEmpty() -> binding.bookName.text = booksViewModel.bookName

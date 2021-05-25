@@ -10,7 +10,7 @@ import javax.inject.Inject
 class BooksViewModel(application: Application) : AndroidViewModel(application) {
 
     @Inject
-    private lateinit var booksRepository : BooksRepository
+    lateinit var booksRepository : BooksRepository
 
     private val errorData : MutableLiveData<Throwable> = MutableLiveData()
 

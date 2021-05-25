@@ -3,10 +3,8 @@ buildscript {
     ext.kotlin_version = "1.5.0"
     repositories {
         google()
-        jcenter()
         mavenCentral()
-        maven { url "https://jitpack.io"}
-        maven { url "https://maven.google.com" }
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.1"
@@ -19,11 +17,9 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
-        jcenter()
-        maven { url = "https://dl.bintray.com/kotlin/dokka" }
         maven { url = "https://jitpack.io"  }
-        maven { url = "https://maven.google.com" }
+        google()
+        mavenCentral()
     }
 }
 

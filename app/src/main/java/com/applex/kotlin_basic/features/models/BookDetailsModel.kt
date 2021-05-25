@@ -1,9 +1,9 @@
 package com.applex.kotlin_basic.features.models
 
 data class BookDetailsModel (
-    var book_name : String? = "",
-    var author : String? = "",
-    var category : String? = "",
-    var publish_date : String? = "",
-    var page_count : Int? = -1
+    val book_name : String?,
+    val author : String?,
+    val category : String?,
+    val publish_date : String?,
+    val page_count : Int?
 )

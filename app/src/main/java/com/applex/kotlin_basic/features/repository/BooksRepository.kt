@@ -17,21 +17,28 @@ class BooksRepository(
     private val commonUtils: CommonUtils
 ) {
     fun getBooksList(data: MutableLiveData<BooksListModel>, error: MutableLiveData<Throwable>) {
-        booksRestApi.getBooksList().enqueue(object : Callback<BooksListModel?> {
-            override fun onResponse(
-                call: Call<BooksListModel?>,
-                response: Response<BooksListModel?>
-            ) = when {
-                response.isSuccessful -> data.value = response.body()
-                else -> error.value = null
-            }
+        when {
+            commonUtils.checkInternetConnection() -> {
+                booksRestApi.getBooksList().enqueue(object : Callback<BooksListModel?> {
+                    override fun onResponse(
+                        call: Call<BooksListModel?>,
+                        response: Response<BooksListModel?>
+                    ) = when {
+                        response.isSuccessful -> data.value = response.body()
+                        else -> error.value = null
+                    }
 
-            override fun onFailure(
-                call: Call<BooksListModel?>,
-                t: Throwable
-            ) {
-                error.value = t
+                    override fun onFailure(
+                        call: Call<BooksListModel?>,
+                        t: Throwable
+                    ) {
+                        error.value = t
+                    }
+                })
             }
-        })
+            else -> {
+                error.value = null
+            }
+        }
     }
 }
