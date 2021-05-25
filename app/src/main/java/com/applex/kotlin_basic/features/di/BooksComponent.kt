@@ -8,5 +8,5 @@ import dagger.Component
 @Component(dependencies = [ApplicationComponent::class], modules = [BooksModule::class])
 interface BooksComponent {
 
-    fun inject(temp_obj : Any)
+    fun inject(temp_obj: Any)
 }

@@ -11,7 +11,6 @@ class KotlinBasicApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         applicationContext = this;
-
     }
 
     fun app(): KotlinBasicApplication = applicationContext

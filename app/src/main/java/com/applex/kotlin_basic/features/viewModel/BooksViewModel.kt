@@ -13,18 +13,18 @@ import javax.inject.Inject
 class BooksViewModel(application: Application) : AndroidViewModel(application) {
 
     @Inject
-    lateinit var booksRepository : BooksRepository
+    lateinit var booksRepository: BooksRepository
 
-    private val errorData : MutableLiveData<Throwable> = MutableLiveData()
+    private val errorData: MutableLiveData<Throwable> = MutableLiveData()
 
-    var bookName : String = ""
-    var author : String = ""
-    var category : String = ""
-    var publishDate : String = ""
-    var pageCount : Int = -1
+    var bookName: String = ""
+    var author: String = ""
+    var category: String = ""
+    var publishDate: String = ""
+    var pageCount: Int = -1
 
-    fun getBooksList() : MutableLiveData<BooksListModel> {
-        val successData : MutableLiveData<BooksListModel> = MutableLiveData()
+    fun getBooksList(): MutableLiveData<BooksListModel> {
+        val successData: MutableLiveData<BooksListModel> = MutableLiveData()
         booksRepository.getBooksList(successData, errorData)
         return successData
     }

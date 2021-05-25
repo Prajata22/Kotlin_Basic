@@ -17,12 +17,14 @@ class BooksModule {
 
     @Provides
     @UserScope
-    fun provideBooksRestApi(@Named(Constants.RETROFIT_WITHOUT_HEADERS) retrofit : Retrofit) : BooksRestApi =
+    fun provideBooksRestApi(@Named(Constants.RETROFIT_WITHOUT_HEADERS) retrofit: Retrofit): BooksRestApi =
         retrofit.create(BooksRestApi::class.java)
 
     @Provides
     @UserScope
-    fun provideBooksRepository(booksRestApi: BooksRestApi, context: Context,
-                               preferenceManager: PreferenceManager, commonUtils: CommonUtils): BooksRepository =
+    fun provideBooksRepository(
+        booksRestApi: BooksRestApi, context: Context,
+        preferenceManager: PreferenceManager, commonUtils: CommonUtils
+    ): BooksRepository =
         BooksRepository(booksRestApi, context, preferenceManager, commonUtils)
 }

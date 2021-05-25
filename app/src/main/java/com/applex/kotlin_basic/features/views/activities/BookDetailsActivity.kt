@@ -20,11 +20,12 @@ class BookDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding : ActivityBookBinding = DataBindingUtil.setContentView(this, R.layout.activity_book)
+        val binding: ActivityBookBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_book)
 
-        val booksViewModel : BooksViewModel = ViewModelProvider(this).get(BooksViewModel::class.java)
+        val booksViewModel: BooksViewModel = ViewModelProvider(this).get(BooksViewModel::class.java)
 
-        val booksComponent : BooksComponent = DaggerBooksComponent.builder()
+        val booksComponent: BooksComponent = DaggerBooksComponent.builder()
             .applicationComponent(
                 (application as KotlinBasicApplication)
                     .getApplicationComponent()
@@ -55,19 +56,21 @@ class BookDetailsActivity : AppCompatActivity() {
         }
 
         when {
-            booksViewModel.publishDate.isNotEmpty() -> binding.publishDate.text = booksViewModel.publishDate
+            booksViewModel.publishDate.isNotEmpty() -> binding.publishDate.text =
+                booksViewModel.publishDate
             else -> binding.publishDateLayout.visibility = View.GONE
         }
 
         when {
-            booksViewModel.pageCount != -1 -> binding.pageCount.text = booksViewModel.pageCount.toString()
+            booksViewModel.pageCount != -1 -> binding.pageCount.text =
+                booksViewModel.pageCount.toString()
             else -> binding.pageCountLayout.visibility = View.GONE
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            super.onBackPressed()
+        when (item.itemId) {
+            android.R.id.home -> super.onBackPressed()
         }
         return super.onOptionsItemSelected(item)
     }

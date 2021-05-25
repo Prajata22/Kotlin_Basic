@@ -25,12 +25,12 @@ class ApplicationModule(private val context: Application) {
 
     @Provides
     @Singleton
-    fun provideSharedPreferences(context : Context): PreferenceManager = PreferenceManager(context)
+    fun provideSharedPreferences(context: Context): PreferenceManager = PreferenceManager(context)
 
     @Provides
     @Singleton
     @Named(Constants.RETROFIT_WITHOUT_HEADERS)
-    fun provideRetrofit(@Named(Constants.GOOGLE_GSON_RETROFIT) gson : Gson): Retrofit =
+    fun provideRetrofit(@Named(Constants.GOOGLE_GSON_RETROFIT) gson: Gson): Retrofit =
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL).addConverterFactory(GsonConverterFactory.create(gson))
             .build()
@@ -43,5 +43,5 @@ class ApplicationModule(private val context: Application) {
 
     @Provides
     @Singleton
-    fun provideCommonUtils(context : Context) : CommonUtils = CommonUtils(context)
+    fun provideCommonUtils(context: Context): CommonUtils = CommonUtils(context)
 }

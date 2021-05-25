@@ -8,13 +8,15 @@ import android.widget.ImageView
 import android.widget.Toast
 import kotlin.math.roundToInt
 
-class CommonUtils (private val context : Context) {
+class CommonUtils(private val context: Context) {
 
-    fun showToast(data : String) = Toast.makeText(context, data, Toast.LENGTH_SHORT).show()
+    fun showToast(data: String) = Toast.makeText(context, data, Toast.LENGTH_SHORT).show()
 
-    fun checkInternetConnection() : Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+    fun checkInternetConnection(): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val capabilities =
+            connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
         if (capabilities != null) {
             when {
                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> return true
@@ -25,7 +27,7 @@ class CommonUtils (private val context : Context) {
         return false
     }
 
-    fun settingImage(id : Int, view : ImageView) {
+    fun settingImage(id: Int, view: ImageView) {
         val displayWidth = context.resources.displayMetrics.widthPixels
         val options = BitmapFactory.Options()
         options.inJustDecodeBounds = true

@@ -21,5 +21,5 @@ interface ApplicationComponent {
 
     fun provideSharedPreferences(): PreferenceManager
 
-    fun provideCommonUtils() : CommonUtils
+    fun provideCommonUtils(): CommonUtils
 }

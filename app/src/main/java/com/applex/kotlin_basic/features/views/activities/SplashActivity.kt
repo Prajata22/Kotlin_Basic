@@ -25,9 +25,10 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding : ActivitySplashBinding = DataBindingUtil.setContentView(this, R.layout.activity_splash)
+        val binding: ActivitySplashBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_splash)
 
-        val booksComponent : BooksComponent = DaggerBooksComponent.builder()
+        val booksComponent: BooksComponent = DaggerBooksComponent.builder()
             .applicationComponent(
                 (application as KotlinBasicApplication)
                     .getApplicationComponent()

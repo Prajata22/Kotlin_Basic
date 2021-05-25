@@ -6,12 +6,10 @@ import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-
 import com.applex.kotlin_basic.R
 import com.applex.kotlin_basic.application.KotlinBasicApplication
 import com.applex.kotlin_basic.databinding.ActivityMainBinding
@@ -21,10 +19,7 @@ import com.applex.kotlin_basic.features.models.BookDetailsModel
 import com.applex.kotlin_basic.features.viewModel.BooksViewModel
 import com.applex.kotlin_basic.utils.CommonUtils
 import com.applex.kotlin_basic.utils.PreferenceManager
-
 import javax.inject.Inject
-
-import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,10 +29,10 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var preferenceManager: PreferenceManager
 
-    private lateinit var binding : ActivityMainBinding
-    private lateinit var booksViewModel : BooksViewModel
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var booksViewModel: BooksViewModel
 
-    private val booksModelList : ArrayList<BookDetailsModel> = ArrayList()
+    private val booksModelList: ArrayList<BookDetailsModel> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         booksViewModel = ViewModelProvider(this).get(BooksViewModel::class.java)
 
-        val booksComponent : BooksComponent = DaggerBooksComponent.builder()
+        val booksComponent: BooksComponent = DaggerBooksComponent.builder()
             .applicationComponent(
                 (application as KotlinBasicApplication)
                     .getApplicationComponent()
@@ -90,7 +85,9 @@ class MainActivity : AppCompatActivity() {
     private fun showErrorData() {
         booksViewModel.getErrorData().observe(this) { throwable ->
             when {
-                throwable != null && throwable.message?.isNotEmpty() == true -> commonUtils.showToast(throwable.message!!)
+                throwable != null && throwable.message?.isNotEmpty() == true -> commonUtils.showToast(
+                    throwable.message!!
+                )
                 else -> commonUtils.showToast("Something went wrong")
             }
 
@@ -104,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun sortingList(orderBy : String) {
+    private fun sortingList(orderBy: String) {
 
     }
 
