@@ -1,9 +1,10 @@
 package com.applex.kotlin_basic.utils
 
-class Constants {
+object Constants {
 
-    val PREFERENCE_NAME = "com.applex.kotlin_basic"
-    val ORDER_BY = "order_by"
-    val RETROFIT_WITHOUT_HEADERS = "retrofit_wihout_headers"
-    val RETROFIT_WITH_HEADERS = "retrofit_with_headers"
+    const val PREFERENCE_NAME = "com.applex.kotlin_basic"
+    const val ORDER_BY = "order_by"
+    const val RETROFIT_WITHOUT_HEADERS = "retrofit_wihout_headers"
+    const val RETROFIT_WITH_HEADERS = "retrofit_with_headers"
+    const val GOOGLE_GSON_RETROFIT = "google_gson_retrofit"
 }

@@ -1,15 +1,12 @@
 package com.applex.kotlin_basic.application
 
 import androidx.multidex.MultiDexApplication
+import com.applex.kotlin_basic.di.component.ApplicationComponent
 
 class KotlinBasicApplication : MultiDexApplication() {
 
-    private lateinit var applicationContext : KotlinBasicApplication
+    private lateinit var applicationContext: KotlinBasicApplication
     private lateinit var applicationComponent: ApplicationComponent
-
-    fun app() : KotlinBasicApplication {
-        return applicationContext
-    }
 
     override fun onCreate() {
         super.onCreate()
@@ -17,7 +14,7 @@ class KotlinBasicApplication : MultiDexApplication() {
 
     }
 
-    fun getApplicationComponent() : ApplicationComponent {
-        return applicationComponent
-    }
+    fun app(): KotlinBasicApplication = applicationContext
+
+    fun getApplicationComponent(): ApplicationComponent = applicationComponent
 }
