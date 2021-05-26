@@ -1,4 +1,4 @@
-# Kotlin_Basic
+# Kotlin Basic
 
 Topics covered in this project :-
 1) Kotlin (Activity, Fragment, Recycler View)
