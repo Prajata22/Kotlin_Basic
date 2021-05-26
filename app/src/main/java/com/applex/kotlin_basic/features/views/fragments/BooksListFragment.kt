@@ -3,10 +3,7 @@ package com.applex.kotlin_basic.features.views.fragments
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.AdapterView
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat

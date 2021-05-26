@@ -1,10 +1,7 @@
 package com.applex.kotlin_basic.features.views.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -59,8 +56,6 @@ class BookDetailsFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         when {
             !booksViewModel.bookName.isNullOrEmpty() -> binding.bookName.text =
                 booksViewModel.bookName
@@ -90,6 +85,11 @@ class BookDetailsFragment : Fragment() {
                 booksViewModel.pageCount.toString()
             else -> binding.pageCountLayout.visibility = View.GONE
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.findItem(R.id.search).isVisible = false
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
