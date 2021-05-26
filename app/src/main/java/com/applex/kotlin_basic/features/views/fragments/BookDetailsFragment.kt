@@ -39,6 +39,7 @@ class BookDetailsFragment : Fragment() {
         booksComponent.inject(this)
         booksComponent.inject(booksViewModel)
 
+        requireActivity().actionBar?.title = "Book Details"
         requireActivity().actionBar?.setDisplayShowHomeEnabled(true)
         requireActivity().actionBar?.setDisplayHomeAsUpEnabled(true)
         requireActivity().actionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp)
