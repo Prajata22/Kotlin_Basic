@@ -1,13 +1,10 @@
 package com.applex.kotlin_basic.features.viewModel
 
 import android.app.Application
-
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-
 import com.applex.kotlin_basic.features.models.BooksListModel
 import com.applex.kotlin_basic.features.repository.BooksRepository
-
 import javax.inject.Inject
 
 class BooksViewModel(application: Application) : AndroidViewModel(application) {

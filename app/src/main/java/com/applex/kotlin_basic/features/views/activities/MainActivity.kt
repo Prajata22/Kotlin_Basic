@@ -2,11 +2,9 @@ package com.applex.kotlin_basic.features.views.activities
 
 import android.os.Bundle
 import android.view.Menu
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-
 import com.applex.kotlin_basic.R
 import com.applex.kotlin_basic.application.KotlinBasicApplication
 import com.applex.kotlin_basic.features.di.BooksComponent

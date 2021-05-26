@@ -4,17 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-
 import com.applex.kotlin_basic.R
 import com.applex.kotlin_basic.application.KotlinBasicApplication
 import com.applex.kotlin_basic.databinding.ActivitySplashBinding
 import com.applex.kotlin_basic.features.di.BooksComponent
 import com.applex.kotlin_basic.features.di.DaggerBooksComponent
 import com.applex.kotlin_basic.utils.CommonUtils
-
 import javax.inject.Inject
 
 class SplashActivity : AppCompatActivity() {

@@ -54,25 +54,25 @@ class BookDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         when {
-            booksViewModel.bookName?.isNotEmpty() == true -> binding.bookName.text =
+            !booksViewModel.bookName.isNullOrEmpty() -> binding.bookName.text =
                 booksViewModel.bookName
             else -> binding.bookNameLayout.visibility = View.GONE
         }
 
         when {
-            booksViewModel.author?.isNotEmpty() == true -> binding.author.text =
+            !booksViewModel.author.isNullOrEmpty() -> binding.author.text =
                 booksViewModel.author
             else -> binding.authorLayout.visibility = View.GONE
         }
 
         when {
-            booksViewModel.category?.isNotEmpty() == true -> binding.category.text =
+            !booksViewModel.category.isNullOrEmpty() -> binding.category.text =
                 booksViewModel.category
             else -> binding.categoryLayout.visibility = View.GONE
         }
 
         when {
-            booksViewModel.publishDate?.isNotEmpty() == true -> binding.publishDate.text =
+            !booksViewModel.publishDate.isNullOrEmpty() -> binding.publishDate.text =
                 booksViewModel.publishDate
             else -> binding.publishDateLayout.visibility = View.GONE
         }

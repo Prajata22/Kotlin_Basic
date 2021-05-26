@@ -54,7 +54,7 @@ class BooksAdapter(
     override fun onBindViewHolder(holder: ProgrammingViewHolder, position: Int) {
         val currentItem: BookDetailsModel = list[position]
         when {
-            currentItem.book_name?.isNotEmpty() == true -> holder.binding.bookName.text =
+            !currentItem.book_name.isNullOrEmpty() -> holder.binding.bookName.text =
                 currentItem.book_name
             else -> holder.itemView.visibility = View.GONE
         }
