@@ -12,7 +12,8 @@
             android:id="@+id/main_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/grey">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/orderByLayout"
@@ -114,6 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:clipToPadding="false"
+                android:visibility="gone"
                 android:descendantFocusability="blocksDescendants"
                 android:nestedScrollingEnabled="true"
                 android:orientation="vertical"

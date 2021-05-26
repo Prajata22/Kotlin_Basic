@@ -7,6 +7,7 @@ import android.view.*
 import android.widget.AdapterView
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -70,6 +71,9 @@ class BooksListFragment : Fragment() {
 
         commonUtils.settingImage(R.drawable.no_data, binding.noData)
         commonUtils.settingImage(R.drawable.error, binding.error)
+
+        binding.shimmerLayout.isVisible = true
+        binding.shimmerLayout.startShimmer()
 
         Handler(Looper.getMainLooper()).postDelayed({ buildRecyclerView() }, 1000)
         showErrorData()
