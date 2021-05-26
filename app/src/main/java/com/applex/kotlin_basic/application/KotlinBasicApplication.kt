@@ -5,6 +5,9 @@ import com.applex.kotlin_basic.di.component.ApplicationComponent
 import com.applex.kotlin_basic.di.component.DaggerApplicationComponent
 import com.applex.kotlin_basic.di.module.ApplicationModule
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 class KotlinBasicApplication : MultiDexApplication() {
 
     private lateinit var applicationContext: KotlinBasicApplication

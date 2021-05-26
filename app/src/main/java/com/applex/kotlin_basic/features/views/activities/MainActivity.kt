@@ -14,6 +14,9 @@ import com.applex.kotlin_basic.features.di.DaggerBooksComponent
 import com.applex.kotlin_basic.features.viewModel.BooksViewModel
 import com.applex.kotlin_basic.features.views.fragments.BooksListFragment
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

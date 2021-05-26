@@ -7,6 +7,9 @@ import com.applex.kotlin_basic.features.models.BooksListModel
 import com.applex.kotlin_basic.features.repository.BooksRepository
 import javax.inject.Inject
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 class BooksViewModel(application: Application) : AndroidViewModel(application) {
 
     @Inject

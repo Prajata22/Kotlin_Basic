@@ -10,6 +10,9 @@ import com.applex.kotlin_basic.features.views.fragments.BookDetailsFragment
 import com.applex.kotlin_basic.features.views.fragments.BooksListFragment
 import dagger.Component
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 @UserScope
 @Component(dependencies = [ApplicationComponent::class], modules = [BooksModule::class])
 interface BooksComponent {

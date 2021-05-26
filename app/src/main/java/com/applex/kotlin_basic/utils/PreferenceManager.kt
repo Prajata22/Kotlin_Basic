@@ -3,6 +3,9 @@ package com.applex.kotlin_basic.utils
 import android.content.Context
 import android.content.SharedPreferences
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 class PreferenceManager(context: Context?) {
 
     private var preferences: SharedPreferences? =

@@ -14,6 +14,9 @@ import com.applex.kotlin_basic.features.di.DaggerBooksComponent
 import com.applex.kotlin_basic.utils.CommonUtils
 import javax.inject.Inject
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 class SplashActivity : AppCompatActivity() {
 
     @Inject

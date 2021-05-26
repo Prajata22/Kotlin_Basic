@@ -6,6 +6,9 @@ import com.google.gson.stream.JsonToken
 import com.google.gson.stream.JsonWriter
 import java.io.IOException
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 class IntegerTypeAdapter : TypeAdapter<Int>() {
 
     @Throws(IOException::class)

@@ -10,6 +10,9 @@ import dagger.Provides
 import retrofit2.Retrofit
 import javax.inject.Named
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 @Module
 class BooksModule {
 

@@ -16,6 +16,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
 import javax.inject.Singleton
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 @Module
 class ApplicationModule(private val context: Application) {
 

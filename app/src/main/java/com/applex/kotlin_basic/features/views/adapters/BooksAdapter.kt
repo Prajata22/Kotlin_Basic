@@ -19,6 +19,9 @@ import com.applex.kotlin_basic.features.viewModel.BooksViewModel
 import com.applex.kotlin_basic.features.views.activities.MainActivity
 import com.applex.kotlin_basic.features.views.fragments.BookDetailsFragment
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 class BooksAdapter(
     private val context: Activity,
     private val list: ArrayList<BookDetailsModel>

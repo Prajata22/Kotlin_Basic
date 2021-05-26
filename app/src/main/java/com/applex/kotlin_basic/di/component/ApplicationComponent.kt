@@ -10,6 +10,9 @@ import retrofit2.Retrofit
 import javax.inject.Named
 import javax.inject.Singleton
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 @Singleton
 @Component(modules = [ApplicationModule::class])
 interface ApplicationComponent {

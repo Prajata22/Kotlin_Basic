@@ -24,6 +24,9 @@ import com.applex.kotlin_basic.utils.PreferenceManager
 import kotlinx.android.synthetic.main.fragment_books_list.*
 import javax.inject.Inject
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 class BooksListFragment : Fragment() {
 
     @Inject

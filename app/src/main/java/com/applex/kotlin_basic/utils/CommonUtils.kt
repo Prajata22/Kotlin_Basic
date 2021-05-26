@@ -8,6 +8,9 @@ import android.widget.ImageView
 import android.widget.Toast
 import kotlin.math.roundToInt
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 class CommonUtils(private val context: Context) {
 
     fun showToast(data: String) = Toast.makeText(context, data, Toast.LENGTH_SHORT).show()

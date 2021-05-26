@@ -13,6 +13,9 @@ import com.applex.kotlin_basic.features.di.BooksComponent
 import com.applex.kotlin_basic.features.di.DaggerBooksComponent
 import com.applex.kotlin_basic.features.viewModel.BooksViewModel
 
+/**
+ * Created by Prajata on 25 May 2021
+ */
 class BookDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentBookDetailsBinding
