@@ -17,11 +17,11 @@ class BooksViewModel(application: Application) : AndroidViewModel(application) {
 
     private val errorData: MutableLiveData<Throwable> = MutableLiveData()
 
-    var bookName: String = ""
-    var author: String = ""
-    var category: String = ""
-    var publishDate: String = ""
-    var pageCount: Int = -1
+    var bookName: String? = ""
+    var author: String? = ""
+    var category: String? = ""
+    var publishDate: String? = ""
+    var pageCount: Int? = -1
 
     fun getBooksList(): MutableLiveData<BooksListModel> {
         val successData: MutableLiveData<BooksListModel> = MutableLiveData()
