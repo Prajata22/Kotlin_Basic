@@ -2,6 +2,8 @@ package com.applex.kotlin_basic.application
 
 import androidx.multidex.MultiDexApplication
 import com.applex.kotlin_basic.di.component.ApplicationComponent
+import com.applex.kotlin_basic.di.component.DaggerApplicationComponent
+import com.applex.kotlin_basic.di.module.ApplicationModule
 
 class KotlinBasicApplication : MultiDexApplication() {
 
@@ -10,7 +12,12 @@ class KotlinBasicApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        applicationContext = this;
+        applicationContext = this
+        applicationComponent = DaggerApplicationComponent.builder()
+            .applicationModule(
+                ApplicationModule(this)
+            )
+            .build()
     }
 
     fun app(): KotlinBasicApplication = applicationContext

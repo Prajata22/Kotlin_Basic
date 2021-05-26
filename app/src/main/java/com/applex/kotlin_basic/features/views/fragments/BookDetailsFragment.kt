@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +20,11 @@ class BookDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentBookDetailsBinding
     private lateinit var booksViewModel: BooksViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,10 +45,10 @@ class BookDetailsFragment : Fragment() {
         booksComponent.inject(this)
         booksComponent.inject(booksViewModel)
 
-        requireActivity().actionBar?.title = "Book Details"
-        requireActivity().actionBar?.setDisplayShowHomeEnabled(true)
-        requireActivity().actionBar?.setDisplayHomeAsUpEnabled(true)
-        requireActivity().actionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp)
+        (activity as AppCompatActivity).supportActionBar?.title = "Book Details"
+        (activity as AppCompatActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp)
 
         return binding.root
     }
@@ -52,6 +58,8 @@ class BookDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         when {
             !booksViewModel.bookName.isNullOrEmpty() -> binding.bookName.text =

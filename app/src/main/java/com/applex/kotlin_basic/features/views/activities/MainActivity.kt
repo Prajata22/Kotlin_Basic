@@ -3,10 +3,12 @@ package com.applex.kotlin_basic.features.views.activities
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.applex.kotlin_basic.R
 import com.applex.kotlin_basic.application.KotlinBasicApplication
+import com.applex.kotlin_basic.databinding.ActivityMainBinding
 import com.applex.kotlin_basic.features.di.BooksComponent
 import com.applex.kotlin_basic.features.di.DaggerBooksComponent
 import com.applex.kotlin_basic.features.viewModel.BooksViewModel
@@ -16,7 +18,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val booksViewModel: BooksViewModel = ViewModelProvider(this).get(BooksViewModel::class.java)
 
@@ -30,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         booksComponent.inject(this)
         booksComponent.inject(booksViewModel)
 
+        setSupportActionBar(binding.toolbar)
+
         val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.add(R.id.fragmentContainer, BooksListFragment(), "books_list")
         fragmentTransaction.commit()
@@ -37,6 +42,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
-        return super.onCreateOptionsMenu(menu)
+        return true
     }
 }

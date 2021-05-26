@@ -39,11 +39,16 @@ class BooksListFragment : Fragment() {
 
     private val booksModelList: ArrayList<BookDetailsModel> = ArrayList()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.activity_main, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_books_list, container, false)
 
         booksViewModel = ViewModelProvider(requireActivity()).get(BooksViewModel::class.java)
 
@@ -187,7 +192,6 @@ class BooksListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            android.R.id.home -> requireActivity().onBackPressed()
             R.id.search -> {
                 val searchView = item.actionView as SearchView
                 searchView.queryHint = "Search"
