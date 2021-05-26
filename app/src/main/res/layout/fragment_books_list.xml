@@ -8,134 +8,150 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/orderByLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:orientation="vertical"
                 android:visibility="gone"
-                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+                android:background="@color/white"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:elevation="2dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="25dp"
-                        android:gravity="center_vertical"
-                        android:text="@string/order_by"
-                        android:textColor="@color/light_black"
-                        android:textSize="17sp"
-                        tools:ignore="RelativeOverlap" />
-
-                    <Spinner
-                        android:id="@+id/order"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:entries="@array/orders"
-                        android:gravity="center_vertical"
-                        android:paddingStart="50dp"
-                        tools:ignore="RtlSymmetry" />
-
-                </RelativeLayout>
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/order_by"
+                    android:textColor="@color/light_black"
+                    android:textSize="17sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintHorizontal_bias="0.2"/>
 
                 <View
-                    android:id="@+id/view2"
-                    android:layout_width="match_parent"
+                    android:id="@+id/view"
+                    android:layout_width="1dp"
                     android:layout_height="1dp"
-                    android:background="@color/grey" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-            </LinearLayout>
+                <Spinner
+                    android:id="@+id/order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:entries="@array/orders"
+                    android:gravity="center_vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/view"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlSymmetry"
+                    app:layout_constraintHorizontal_bias="1"/>
 
-            <RelativeLayout
-                android:id="@+id/main_layout"
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/grey">
+                android:layout_height="0dp"
+                android:background="@color/grey"
+                android:paddingTop="8dp"
+                android:visibility="gone"
+                app:shimmer_repeat_mode="restart"
+                app:shimmer_shape="radial"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orderByLayout">
 
-                <com.facebook.shimmer.ShimmerFrameLayout
-                    android:id="@+id/shimmerLayout"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/grey"
-                    android:paddingTop="8dp"
-                    android:visibility="gone"
-                    app:shimmer_repeat_mode="restart"
-                    app:shimmer_shape="radial">
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                    <include layout="@layout/layout_shimmer" />
 
-                        <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
 
-                        <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
 
-                        <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
 
-                        <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
 
-                        <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
 
-                        <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
 
-                        <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
 
-                        <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
 
-                        <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
 
-                        <include layout="@layout/layout_shimmer" />
+                </LinearLayout>
 
-                    </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
-                </com.facebook.shimmer.ShimmerFrameLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:descendantFocusability="blocksDescendants"
+                android:nestedScrollingEnabled="true"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                android:background="@color/grey"
+                android:paddingTop="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:reverseLayout="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orderByLayout"
+                tools:listitem="@layout/item_books_list"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:descendantFocusability="blocksDescendants"
-                    android:nestedScrollingEnabled="true"
-                    android:orientation="vertical"
-                    android:overScrollMode="never"
-                    android:paddingTop="8dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:reverseLayout="false" />
+            <ImageView
+                android:id="@+id/error"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:contentDescription="@string/error"
+                android:visibility="gone"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-                <ImageView
-                    android:id="@+id/error"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_centerInParent="true"
-                    android:layout_marginTop="300dp"
-                    android:contentDescription="@string/error"
-                    android:visibility="gone" />
+            <ImageView
+                android:id="@+id/no_data"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:contentDescription="@string/no_data"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-                <ImageView
-                    android:id="@+id/no_data"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_centerInParent="true"
-                    android:layout_marginTop="300dp"
-                    android:contentDescription="@string/no_data"
-                    android:visibility="gone" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

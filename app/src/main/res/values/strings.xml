@@ -13,6 +13,7 @@
     <string name="error">error</string>
     <string name="no_data">no data</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="splash_image">splash_image</string>
 
     <string-array name="orders">
         <item>Book Name</item>
