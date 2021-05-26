@@ -1,19 +1,15 @@
 package com.applex.kotlin_basic.features.repository
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.applex.kotlin_basic.features.interfaces.BooksRestApi
 import com.applex.kotlin_basic.features.models.BooksListModel
 import com.applex.kotlin_basic.utils.CommonUtils
-import com.applex.kotlin_basic.utils.PreferenceManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class BooksRepository(
     private val booksRestApi: BooksRestApi,
-    private val context: Context,
-    private val preferenceManager: PreferenceManager,
     private val commonUtils: CommonUtils
 ) {
     fun getBooksList(data: MutableLiveData<BooksListModel>, error: MutableLiveData<Throwable>) {
