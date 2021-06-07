@@ -13,11 +13,16 @@ import com.applex.kotlin_basic.features.di.BooksComponent
 import com.applex.kotlin_basic.features.di.DaggerBooksComponent
 import com.applex.kotlin_basic.features.viewModel.BooksViewModel
 import com.applex.kotlin_basic.features.views.fragments.BooksListFragment
+import com.applex.kotlin_basic.utils.CommonUtils
+import javax.inject.Inject
 
 /**
  * Created by Prajata on 25 May 2021
  */
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var commonUtils: CommonUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +44,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         supportFragmentManager.addOnBackStackChangedListener {
-            if(supportFragmentManager.backStackEntryCount == 0) {
-                supportActionBar?.title = "Kotlin Basic"
-                supportActionBar?.setDisplayShowHomeEnabled(false)
-                supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            when (supportFragmentManager.backStackEntryCount) {
+                0 -> commonUtils.setToolbar(binding.toolbar, "Kotlin Basic", this)
             }
         }
 

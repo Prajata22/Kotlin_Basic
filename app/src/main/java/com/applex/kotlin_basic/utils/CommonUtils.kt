@@ -1,11 +1,14 @@
 package com.applex.kotlin_basic.utils
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import kotlin.math.roundToInt
 
 /**
@@ -28,6 +31,12 @@ class CommonUtils(private val context: Context) {
             }
         }
         return false
+    }
+
+    fun setToolbar(toolbar: Toolbar, title: String, activity: Activity) {
+        toolbar.title = title
+        (activity as AppCompatActivity).supportActionBar?.setDisplayShowHomeEnabled(false)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
     fun settingImage(id: Int, view: ImageView) {
