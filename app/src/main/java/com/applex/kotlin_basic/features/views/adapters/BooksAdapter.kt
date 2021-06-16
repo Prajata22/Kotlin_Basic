@@ -24,37 +24,24 @@ import com.applex.kotlin_basic.features.views.fragments.BookDetailsFragment
  */
 class BooksAdapter(
     private val context: Activity,
-    private val list: ArrayList<BookDetailsModel>
+    private val list: ArrayList<BookDetailsModel>,
+    private val booksViewModel: BooksViewModel
 ) : RecyclerView.Adapter<BooksAdapter.ProgrammingViewHolder>() {
 
-    private var booksViewModel: BooksViewModel = ViewModelProvider(
-        context as MainActivity
-    ).get(
-        BooksViewModel::class.java
-    )
-
-    private var booksComponent: BooksComponent = DaggerBooksComponent.builder()
-        .applicationComponent(
-            (context.application as KotlinBasicApplication)
-                .getApplicationComponent()
-        )
-        .build()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProgrammingViewHolder {
-        val binding: ItemBooksListBinding = DataBindingUtil.inflate(
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ProgrammingViewHolder = ProgrammingViewHolder(DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             R.layout.item_books_list,
             parent, false
         )
+    )
 
-        booksComponent.inject(this)
-        booksComponent.inject(booksViewModel)
-
-        return ProgrammingViewHolder(binding)
-    }
-
-
-    override fun onBindViewHolder(holder: ProgrammingViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ProgrammingViewHolder,
+        position: Int
+    ) {
         val currentItem: BookDetailsModel = list[position]
         when {
             !currentItem.book_name.isNullOrEmpty() -> holder.binding.bookName.text =
