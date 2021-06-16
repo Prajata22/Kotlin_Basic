@@ -25,7 +25,5 @@ interface BooksComponent {
 
     fun inject(bookDetailsFragment: BookDetailsFragment)
 
-    fun inject(booksAdapter: BooksAdapter)
-
     fun inject(booksViewModel: BooksViewModel)
 }

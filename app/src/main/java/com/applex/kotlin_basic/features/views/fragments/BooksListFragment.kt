@@ -159,7 +159,11 @@ class BooksListFragment : Fragment() {
                     }
                 }
 
-                val adapter = BooksAdapter(requireActivity(), booksModelList)
+                val adapter = BooksAdapter(
+                    requireActivity(),
+                    booksModelList,
+                    booksViewModel
+                )
                 binding.recyclerList.adapter = adapter
                 when {
                     binding.swipeRefresh.isRefreshing -> binding.swipeRefresh.isRefreshing = false

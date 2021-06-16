@@ -7,16 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.applex.kotlin_basic.R
-import com.applex.kotlin_basic.application.KotlinBasicApplication
 import com.applex.kotlin_basic.databinding.ItemBooksListBinding
-import com.applex.kotlin_basic.features.di.BooksComponent
-import com.applex.kotlin_basic.features.di.DaggerBooksComponent
 import com.applex.kotlin_basic.features.models.BookDetailsModel
 import com.applex.kotlin_basic.features.viewModel.BooksViewModel
-import com.applex.kotlin_basic.features.views.activities.MainActivity
 import com.applex.kotlin_basic.features.views.fragments.BookDetailsFragment
 
 /**
